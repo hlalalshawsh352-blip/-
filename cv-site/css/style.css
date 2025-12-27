@@ -1,0 +1,188 @@
+/* Tajawal Arabic */
+@font-face {
+  font-family: 'Tajawal';
+  src: url('assets/fonts/tajawal-arabic-200-normal.woff2') format('woff2'),
+       url('assets/fonts/tajawal-arabic-200-normal.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Tajawal';
+  src: url('assets/fonts/tajawal-arabic-300-normal.woff2') format('woff2'),
+       url('assets/fonts/tajawal-arabic-300-normal.woff') format('woff');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Tajawal';
+  src: url('assets/fonts/tajawal-arabic-400-normal.woff2') format('woff2'),
+       url('assets/fonts/tajawal-arabic-400-normal.woff') format('woff');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Tajawal';
+  src: url('assets/fonts/tajawal-arabic-500-normal.woff2') format('woff2'),
+       url('assets/fonts/tajawal-arabic-500-normal.woff') format('woff');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Tajawal';
+  src: url('assets/fonts/tajawal-arabic-700-normal.woff2') format('woff2'),
+       url('assets/fonts/tajawal-arabic-700-normal.woff') format('woff');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Tajawal';
+  src: url('assets/fonts/tajawal-arabic-800-normal.woff2') format('woff2'),
+       url('assets/fonts/tajawal-arabic-800-normal.woff') format('woff');
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: 'Tajawal';
+  src: url('assets/fonts/tajawal-arabic-900-normal.woff2') format('woff2'),
+       url('assets/fonts/tajawal-arabic-900-normal.woff') format('woff');
+  font-weight: 900;
+}
+
+/* Latin (اختياري إذا ستستخدم نصوص لاتينية بنفس الخط) */
+@font-face {
+  font-family: 'Tajawal';
+  src: url('assets/fonts/tajawal-latin-400-normal.woff2') format('woff2'),
+       url('assets/fonts/tajawal-latin-400-normal.woff') format('woff');
+  font-weight: 400;
+}
+
+
+:root {
+    --primary-gradient: linear-gradient(135deg, #6c63ff, #a855f7, #ec4899);
+    --glass-bg: rgba(255, 255, 255, 0.12);
+    --glass-border: rgba(255, 255, 255, 0.2);
+}
+
+body {
+    font-family: 'Tajawal', sans-serif;
+    margin: 0;
+    scroll-behavior: smooth;
+    background: var(--primary-gradient);
+    background-size: 300% 300%;
+    animation: bgMove 12s infinite alternate;
+    color: #fff;
+    min-height: 100vh;
+}
+
+@keyframes bgMove {
+    0% { background-position: left; }
+    100% { background-position: right; }
+}
+
+nav {
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    background: rgba(0,0,0,0.4);
+    display: flex; justify-content: space-around;
+    align-items: center; padding: 15px 0;
+    backdrop-filter: blur(12px);
+    z-index: 1000;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+nav a { color: #fff; text-decoration: none; margin: 0 10px; font-weight: 500; transition: 0.3s; }
+nav a:hover { color: #ec4899; }
+
+.lang-toggle {
+    cursor: pointer; padding: 6px 18px;
+    background: #fff; color: #6c63ff;
+    border-radius: 20px; font-weight: bold; border: none;
+}
+
+.cv-container {
+    max-width: 950px;
+    margin: 100px auto 50px auto;
+    background: rgba(0,0,0,0.3);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+
+.cv-header {
+    padding: 40px;
+    text-align: center;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.cv-header picture,
+.cv-header img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 15px;
+}
+
+.cv-body { padding: 40px; }
+
+.section-title {
+    color: #fff;
+    border-bottom: 2px solid rgba(255,255,255,0.3);
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    background: rgba(255,255,255,0.05);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.info-item i { color: #ec4899; width: 20px; text-align: center; }
+
+.skills-list { list-style: none; padding: 0; }
+.skill-item { margin-bottom: 15px; }
+.skill-info { display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 0.9rem; }
+
+.skill-bar {
+    height: 8px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.skill-progress {
+    height: 100%;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(255,255,255,0.5);
+}
+
+.btn-back {
+    background: #fff; color: #6c63ff;
+    padding: 10px 25px; border-radius: 25px;
+    text-decoration: none; font-weight: bold;
+    display: inline-block; transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+    .grid-layout { grid-template-columns: 1fr; }
+    .cv-container { margin: 150px 15px 50px 15px; }
+}

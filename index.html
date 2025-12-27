@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>هلال الشاوش - النسخة الاحترافية</title>
+    
+    <link rel="stylesheet" href="libs/css/bootstrap.min.css">
+    <link rel="stylesheet" href="libs/css/all.min.css">
+    <link rel="stylesheet" href="libs/css/style.css">
+  
+</head>
+<body>
+
+    <header class="navbar navbar-dark fixed-top shadow">
+        <div class="container-fluid">
+            <h1 class="navbar-brand mb-0 h1 mx-auto">لوحة التحكم - هلال الشاوش</h1>
+        </div>
+    </header>
+
+    <main class="container mt-4">
+        <div class="row g-2 mb-4">
+            <div class="col-4"><button onclick="showPage('home')" class="btn btn-outline-primary w-100">الرئيسية</button></div>
+            <div class="col-4"><button onclick="showPage('projects')" class="btn btn-outline-primary w-100">المشاريع</button></div>
+            <div class="col-4"><button onclick="showPage('about')" class="btn btn-outline-primary w-100">المطور</button></div>
+        </div>
+
+        <section id="home" class="page active">
+            <div class="cardh">
+                <div class="circleh">
+                    <div class="card-contenth">
+                        <img src="libs/assets/img/icon_me.jpg" class="iconme" alt="هلال">
+                        <h2>هلال الشاوش</h2>
+                        <p class="card-text">مطور تطبيقات ويب وأندرويد</p>
+                        <a href="cv-site/cv.html" class="btn-exploreh">قراءة السيرة الذاتية</a>
+                        <!-- <div class="social-icon">
+                            <a href="#"><i class="fab fa-whatsapp"></i></a>
+                            <a href="#"><i class="fab fa-telegram"></i></a>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="page">
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">نظام إدارة الصيدلية </h5>
+                            <p class="card-text">مشروع متكامل يعمل أوفلاين.</p>
+                        </div>
+                    </div>
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">نظام إدارة المنتجات </h5>
+                            <p class="card-text">مشروع متكامل يعمل أوفلاين.</p>
+                        </div>
+                    </div>
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">نظام إدارة المدرسة </h5>
+                            <p class="card-text">مشروع متكامل يعمل أوفلاين.</p>
+                        </div>
+                    </div>
+
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">تطبيق الالة الحاسبة</h5>
+                            <p class="card-text">مشروع متكامل يعمل أوفلاين.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="page">
+            <div class="card shadow-sm p-4">
+                <h3>معلومات المطور</h3>
+                <p>الاسم: هلال علي الشاوش</p>
+                <p>التخصص: بكالوريوس علوم حاسوب</p>
+                <p>البريد الإلكتروني: Alshawshhilal128@gmail.com</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="navbar navbar-dark bg-primary fixed-bottom text-white justify-content-center">
+        <small>© 2025 هلال الشاوش </small>
+    </footer>
+
+    <script src="libs/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // دالة التنقل الانسيابي "الآلي"
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            const target = document.getElementById(pageId);
+
+            pages.forEach(p => {
+                p.style.opacity = '0';
+                p.style.transform = 'translateY(20px)';
+                setTimeout(() => { p.classList.remove('active'); }, 300);
+            });
+
+            setTimeout(() => {
+                target.classList.add('active');
+                setTimeout(() => {
+                    target.style.opacity = '1';
+                    target.style.transform = 'translateY(0)';
+                }, 50);
+            }, 350);
+        }
+
+        // تفعيل وضع الأوفلاين (Service Worker)
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+            .then(() => console.log("Offline Mode Active"));
+        }
+    </script>
+</body>
+</html>
